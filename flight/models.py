@@ -1,13 +1,14 @@
 from django.db import models
 
+
 class Airline(models.Model):
-    name = models.CharField(_("Name"), max_length=100)
+    name = models.CharField("Name", max_length=100)
     country = models.ForeignKey("Country")
-    iata_code = models.CharField(_("IATA Code"), max_length=3, blank=True, null=True)
+    iata_code = models.CharField("IATA Code", max_length=3,
+                                 blank=True, null=True)
 
     class Meta:
-        verbose_name = _("Airline")
-        verbose_name_plural = _("Airlines")
+        verbose_name_plural = "Airlines"
         ordering = ("name",)
 
     def __unicode__(self):
@@ -15,18 +16,17 @@ class Airline(models.Model):
 
 
 class Airport(models.Model):
-    iata_code = models.CharField(_("IATA Code"), max_length=3, primary_key=True)
-    name = models.CharField(_("Name"), max_length=100)
-    city = models.CharField(_("City"), max_length=100)
+    iata_code = models.CharField("IATA Code", max_length=3, primary_key=True)
+    name = models.CharField("Name", max_length=100)
+    city = models.CharField("City", max_length=100)
     country = models.ForeignKey("Country")
 
 
 class Country(models.Model):
-    name = models.CharField(_("Name"), max_length=100)
+    name = models.CharField("Name", max_length=100)
 
     class Meta:
-        verbose_name = _("Country")
-        verbose_name_plural = _("Countries")
+        verbose_name_plural = "Countries"
         ordering = ("name",)
 
     def __unicode__(self):
@@ -34,9 +34,9 @@ class Country(models.Model):
 
 
 class Flight(models.Model):
-    code = models.CharField(_("Flight Code"), max_length=7)
+    code = models.CharField("Flight Code", max_length=7)
     airline = models.ForeignKey("Airline")
-    from_airport = models.ForeignKey("Airport")
-    to_airport = models.ForeignKey("Airport")
+    from_airport = models.ForeignKey("Airport", related_name="from_airport")
+    to_airport = models.ForeignKey("Airport", related_name="to_airport")
     seats = models.IntegerField()
     capacity = models.IntegerField()
