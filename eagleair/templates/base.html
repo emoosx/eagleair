@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,7 +11,38 @@
     <link rel="stylesheet" href="{% static 'materialize/bin/materialize.css' %}" media="screen,projection">
   </head>
   <body>
+
+    <nav role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo">Eagle Air</a>
+        <ul class="right">
+          <li><a href="#">Navbar Link</a></li>
+        </ul>
+
+        <ul class="side-nav" id="nav-mobile">
+          <li><a href="#">Navbar Link</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+      </div>
+    </nav>
+
+
+    <div class="section no-pad-bot" id="index-banner">
+      <div class="container">
+        <h1 class="header center orange-text">Eagle Air</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">The best airline ever</h5>
+        </div>
+      <div class="row center">
+          <a href="#" id="download-button" class="btn-large waves-effect waves-light orange">Book</a>
+      </div>
+      </div>
+    </div>
+
+    {% block content %}
+    {% endblock content %}
         <script type="text/javascript" src="{% static 'jquery/dist/jquery.js '}"></script>
         <script type="text/javascript" src="{% static 'materialize/bin/materialize.js' %}"></script>
+        {% block extra_js_lib %}{% endblock extra_js_lib %}
   </body>
 </html>
