@@ -1,2 +1,9 @@
+/* line 8, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+.poster {
+  background-image: url('../img/plane_poster.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  min-height: 400px; }
+
 
 /*# sourceMappingURL=../../../../../../../../static/sass/main.css.map */

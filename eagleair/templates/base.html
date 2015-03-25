@@ -5,26 +5,30 @@
     <meta http-equiv="cleartype" content="on">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <title>Eagle Air - {% block title %}{% endblock title %}</title>
-    <!-- <link rel="stylesheet" href="{% static 'materialize/bin/materialize.css' %}" media="screen,projection"> -->
+    <link rel="stylesheet" href="{% static 'materialize/bin/materialize.css' %}" media="screen,projection">
     {% load sass_tags %}
     <link href="{% sass_src 'sass/main.scss' %}" rel="stylesheet" type="text/css" />
     {% block extra_top_js %}{% endblock extra_top_js %}
   </head>
   <body>
 
-    <nav role="navigation">
-      <div class="nav-wrapper container">
-        <a id="logo-container" href="#" class="brand-logo">Eagle Air</a>
-        <ul class="right">
-          <li><a href="#">Navbar Link</a></li>
-        </ul>
+    <div class="navbar-fixed">
+      <nav role="navigation">
+        <div class="nav-wrapper container">
+          <ul class="left">
+            <li><a href="#">Book</a></li>
+            <li><a href="#">Flights</a></li>
+          </ul>
 
-        <ul class="side-nav" id="nav-mobile">
-          <li><a href="#">Navbar Link</a></li>
-        </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-      </div>
-    </nav>
+          <!-- <ul class="side-nav" id="nav-mobile"> -->
+            <!-- <li><a href="#">Book</a></li> -->
+            <!-- <li><a href="#">Flights</a></li> -->
+          <!-- </ul> -->
+
+          <!-- <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a> -->
+        </div>
+      </nav>
+  </div>
 
 
 

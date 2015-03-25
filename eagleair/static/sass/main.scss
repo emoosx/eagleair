@@ -1,3 +1,21 @@
+// colorscheme
+$black: rgb(35, 31, 32);
+$brown: #894F21;
+$yellow: #E6DED2;
+$blue: #7DA3A7;
+$white: #ffffff;
+
+.poster {
+  background-image: url('../img/plane_poster.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  min-height: 400px;
+}
+
+.login-form {
+}
+
+
 
 body {
 
