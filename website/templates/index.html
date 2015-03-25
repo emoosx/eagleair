@@ -2,16 +2,20 @@
 {% load staticfiles %}
 
 {% block content %}
-    <div class="section no-pad-bot" id="index-banner">
+    <div class="section no-pad-bot no-pad-top" id="index-banner">
 
-      <div class="container">
 
         <div class="row">
+          <section class="col s12 poster valign-wrapper">
+            <div class="valign">
+              <h1 class="header center">Eagle Airlines</h1>
+              <div class="row center"> <h5 class="header col s12 slogan">Fly the Friendly skies.</h5> </div>
+            </div>
+          </section>
+        </div>
 
-        <section class="col s12 m8 poster">
-          <!-- <img src="{% static 'img/plane_poster.jpg' %}" alt="poster" /> -->
-        </section>
-
+      <div class="container">
+        <div class="row">
           <form class="col s12 m4 login-form">
             <div class="row">
               <div class="input-field col s12">
@@ -25,23 +29,33 @@
             </div>
           </form>
 
-        </div>
+          <section class="col s12 m8">
+            <h2 class="header center">About Us</h2>
+          </section>
 
-        <h1 class="header center orange-text">Eagle Air</h1>
 
-        <div class="row center">
-          <h5 class="header col s12 light">The best airline ever</h5>
-        </div>
+
 
       </div> <!-- end of .container -->
     </div>
 
-<div class="container">
+<section class="container testimonials">
     <div class="row">
-      <div class="col s4"> consectetur dolor quidem nulla veritatis quos soluta. ullam molestiae consequuntur doloremque amet non repellendus sequi sit eum! suscipit possimus quia quam nihil facere. nostrum cum quas excepturi optio perferendis incidunt.</div>
-      <div class="col s4"> lorem porro ab labore harum numquam. minima nam mollitia architecto ea magnam! repellendus consectetur ullam fuga omnis sed in nam ducimus. debitis a expedita doloremque sint voluptate eum porro a?</div>
-      <div class="col s4"> lorem quasi natus tempora harum aliquam. vel ad voluptate quas quod laborum dicta corporis quidem, laborum nulla. impedit labore vitae corporis deserunt ea rem omnis maiores? placeat quia repellat saepe!</div>
+      <div class="col s4"> 
+        <i class="large mdi-hardware-watch"></i>
+        <p>
+          Lorem consectetur dolor quidem nulla veritatis quos soluta. ullam molestiae consequuntur doloremque amet non repellendus sequi sit eum! suscipit possimus quia quam nihil facere. nostrum cum quas excepturi optio perferendis incidunt. Consectetur atque consequatur cum aliquam at alias consequuntur libero deserunt soluta voluptates magnam tenetur cumque eveniet officiis, quisquam! Minus itaque vel deserunt rem reiciendis dolore quas voluptate. Molestias quibusdam voluptatum.
+        </p>
+        </div>
+      <div class="col s4"> 
+      <i class="large mdi-action-face-unlock"></i>
+      <p>
+Lorem porro ab labore harum numquam. minima nam mollitia architecto ea magnam! repellendus consectetur ullam fuga omnis sed in nam ducimus. debitis a expedita doloremque sint voluptate eum porro a? Elit deleniti enim nemo quidem beatae vero consequatur aut facilis veniam odit. Pariatur unde aliquid laboriosam a aut? Ratione officia qui laboriosam eligendi fugit quis! Eveniet alias amet quos recusandae. </p></div>
+      <div class="col s4"> 
+      <i class="large mdi-action-favorite"></i>
+      <p>
+        lorem quasi natus tempora harum aliquam. vel ad voluptate quas quod laborum dicta corporis quidem, laborum nulla. impedit labore vitae corporis deserunt ea rem omnis maiores? placeat quia repellat saepe! Amet velit tenetur quidem eius ipsum, animi iure obcaecati. Iusto dolorum ducimus aperiam autem magni blanditiis ratione accusantium ipsum perferendis. Quos suscipit vero dolore quisquam nam asperiores, quo, voluptas natus!</p></div>
     </div>
 
-</div>
+</section>
 {% endblock content %}

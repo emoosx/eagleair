@@ -1,9 +1,39 @@
-/* line 8, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+/* line 9, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+body {
+  background-color: #F9F4EE; }
+
+/* line 13, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+body, h1 {
+  color: #231f20; }
+
+/* line 17, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+.blacken {
+  background-color: #231f20; }
+
+/* line 21, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
 .poster {
-  background-image: url('../img/plane_poster.jpg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  min-height: 400px; }
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/plane_poster.jpg');
+  background-size: 100% 100%;
+  min-height: 500px;
+  padding-top: 25%; }
+  /* line 30, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+  .poster h1 {
+    color: #eee;
+    font-weight: lighter; }
+  /* line 34, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+  .poster .slogan {
+    color: #eee;
+    font-weight: lighter; }
+
+/* line 44, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+.testimonials i {
+  text-align: center;
+  padding-left: 50%;
+  margin-left: -12.5%; }
+
+/* line 52, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+body {
+  background-color: #F9F4EE; }
 
 
 /*# sourceMappingURL=../../../../../../../../static/sass/main.css.map */

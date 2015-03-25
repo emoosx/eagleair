@@ -3,17 +3,25 @@
 <html>
   <head>
     <meta http-equiv="cleartype" content="on">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eagle Air - {% block title %}{% endblock title %}</title>
     <link rel="stylesheet" href="{% static 'materialize/bin/materialize.css' %}" media="screen,projection">
     {% load sass_tags %}
     <link href="{% sass_src 'sass/main.scss' %}" rel="stylesheet" type="text/css" />
     {% block extra_top_js %}{% endblock extra_top_js %}
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
   <body>
 
-    <div class="navbar-fixed">
-      <nav role="navigation">
+    <!-- <div class="navbar-fixed"> -->
+      <nav role="navigation" class="blacken">
         <div class="nav-wrapper container">
           <ul class="left">
             <li><a href="#">Book</a></li>
@@ -28,7 +36,7 @@
           <!-- <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a> -->
         </div>
       </nav>
-  </div>
+  <!-- </div> -->
 
 
 
