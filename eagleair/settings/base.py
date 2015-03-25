@@ -27,7 +27,8 @@ USE_TZ = True
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 STATICFILES_DIR = (
-    os.path.join(PROJECT_ROOT, 'static')
+    os.path.join(PROJECT_ROOT, 'static'),
+    'sass_processor.finders.CssFinder'
 )
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -70,10 +71,16 @@ LOCAL_APPS = (
 THIRD_PARTY_APPS = (
     'materialize',
     'djangobower',
+    'sass_processor',
 )
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
 BOWER_INSTALLED_APPS = (
     'jquery',
+)
+
+SASS_PROCESSOR_ENABLED = False
+SASS_PROCESSOR_ROOT = (
+    os.path.join(PROJECT_ROOT, 'static')
 )
