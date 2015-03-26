@@ -84,3 +84,6 @@ SASS_PROCESSOR_ENABLED = False
 SASS_PROCESSOR_ROOT = (
     os.path.join(PROJECT_ROOT, 'static')
 )
+
+LOGIN_URL = 'django.contrib.auth.views.login'
+LOGIN_REDIRECT_URL = '/'

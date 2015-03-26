@@ -15,24 +15,35 @@
         </div>
 
       <div class="container">
+
+
         <div class="row">
-          <form class="col s12 m4 login-form">
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="username" class="validate" type="text">
-                <label for="" form="username">Username</label>
-              </div>
-              <div class="input-field col s12">
-                <input id="password" class="validate" type="password">
-                <label for="" form="password">Password</label>
-              </div>
-            </div>
-          </form>
 
           <section class="col s12 m8">
             <h2 class="header center">About Us</h2>
           </section>
 
+          <form class="col s12 m4 login-form" method="post" action=".">
+            {% csrf_token %}
+            <div class="row">
+              <div class="input-field col s12">
+                {{ form.username }}
+                {{ form.username.label_tag }}
+              </div>
+              <div class="input-field col s12">
+                {{ form.password }}
+                {{ form.password.label_tag }}
+              </div>
+            </div>
+        {% if form.errors %}
+        <p class="form-errors">Your username and password didn't match. Please try again.</p>
+        {% endif %}
+
+        <button class="btn waves-effect waves-light" type="submit" name="action">Login
+        </button>
+
+
+          </form>
 
 
 
