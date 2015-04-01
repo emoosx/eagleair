@@ -65,7 +65,7 @@ DJANGO_APPS = (
 LOCAL_APPS = (
     'eagleair',
     'flight',
-    'reservation',
+    'booking',
     'website',
 )
 THIRD_PARTY_APPS = (

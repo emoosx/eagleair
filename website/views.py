@@ -1,4 +1,4 @@
-from django.contrib.auth import logout
+from django.contrib.auth import logout, login
 from django.views.generic import TemplateView
 from django.http import HttpResponseRedirect
 
