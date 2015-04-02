@@ -20,20 +20,23 @@
           <section class="col s12 poster valign-wrapper">
             <div class="valign">
               <h2 class="header center">Where would you like to go?</h2>
-              <div class="row">
                 <form>
-                  <label for="">Guests</label>
-                  <select id="" name="">
-                    <option value="1" selected>1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                  </select>
 
+                  <div class="col s12 m4">
+                    <label for="">Guests</label>
+                    <select id="" name="" class="browser-default">
+                      <option value="1" selected>1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                    </select>
+                  </div>
+
+                  <div class="col s12 m4">
                   <label for="">From</label>
-                  <select id="" name="">
+                  <select id="" name="" class="browser-default">
 <option value="SIN" selected>Singapore (SIN)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -41,9 +44,11 @@
                     <option value="5">5</option>
                     <option value="6">6</option>
                   </select>
+                  </div>
 
+                  <div class="col s12 m4">
                   <label for="">To</label>
-                  <select id="" name="">
+                  <select id="" name="" class="browser-default">
                     <option value="1" selected>New York (JFK)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -51,62 +56,33 @@
                     <option value="5">5</option>
                     <option value="6">6</option>
                   </select>
+                  </div>
                 </form>
-              </div>
             </div>
           </section>
         </div>
 
-      <div class="container">
 
-
-        <div class="row">
-
-          <section class="col s12 m8">
-            <h2 class="header center">About Us</h2>
-          </section>
-
-          <form class="col s12 m4 login-form" method="post" action=".">
-            {% csrf_token %}
-            <div class="row">
-              <div class="input-field col s12">
-                {{ form.username }}
-                {{ form.username.label_tag }}
-              </div>
-              <div class="input-field col s12">
-                {{ form.password }}
-                {{ form.password.label_tag }}
-              </div>
-            </div>
-        {% if form.errors %}
-        <p class="form-errors">Your username and password didn't match. Please try again.</p>
-        {% endif %}
-
-        <button class="btn waves-effect waves-light" type="submit" name="action">Login
-        </button>
-
-
-          </form>
-
-
-
-      </div> <!-- end of .container -->
-    </div>
+      
 
 <section class="container testimonials">
     <div class="row">
       <div class="col s4"> 
         <i class="large mdi-hardware-watch"></i>
+        <h4>Fly like a boss</h4>
         <p>
           Lorem consectetur dolor quidem nulla veritatis quos soluta. ullam molestiae consequuntur doloremque amet non repellendus sequi sit eum! suscipit possimus quia quam nihil facere. nostrum cum quas excepturi optio perferendis incidunt. Consectetur atque consequatur cum aliquam at alias consequuntur libero deserunt soluta voluptates magnam tenetur cumque eveniet officiis, quisquam! Minus itaque vel deserunt rem reiciendis dolore quas voluptate. Molestias quibusdam voluptatum.
         </p>
         </div>
       <div class="col s4"> 
       <i class="large mdi-action-face-unlock"></i>
+      <h4>Fly Higher</h4>
       <p>
 Lorem porro ab labore harum numquam. minima nam mollitia architecto ea magnam! repellendus consectetur ullam fuga omnis sed in nam ducimus. debitis a expedita doloremque sint voluptate eum porro a? Elit deleniti enim nemo quidem beatae vero consequatur aut facilis veniam odit. Pariatur unde aliquid laboriosam a aut? Ratione officia qui laboriosam eligendi fugit quis! Eveniet alias amet quos recusandae. </p></div>
+
       <div class="col s4"> 
       <i class="large mdi-action-favorite"></i>
+      <h4>Satisfaction</h4>
       <p>
         lorem quasi natus tempora harum aliquam. vel ad voluptate quas quod laborum dicta corporis quidem, laborum nulla. impedit labore vitae corporis deserunt ea rem omnis maiores? placeat quia repellat saepe! Amet velit tenetur quidem eius ipsum, animi iure obcaecati. Iusto dolorum ducimus aperiam autem magni blanditiis ratione accusantium ipsum perferendis. Quos suscipit vero dolore quisquam nam asperiores, quo, voluptas natus!</p></div>
     </div>

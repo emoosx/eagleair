@@ -1,39 +1,36 @@
-/* line 9, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
-body {
-  background-color: #F9F4EE; }
-
-/* line 13, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+/* line 10, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
 body, h1 {
   color: #231f20; }
 
-/* line 17, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+/* line 14, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
 .blacken {
   background-color: #231f20; }
 
-/* line 21, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+/* line 18, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
 .poster {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/plane_poster.jpg');
-  background-size: 100% 100%;
-  min-height: 500px;
-  padding-top: 25%; }
-  /* line 30, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+  background: #FFFFFF;
+  min-height: 500px; }
+  /* line 22, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
   .poster h1 {
     color: #eee;
     font-weight: lighter; }
-  /* line 34, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+  /* line 26, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
   .poster .slogan {
     color: #eee;
     font-weight: lighter; }
 
-/* line 44, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+/* line 36, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
 .testimonials i {
   text-align: center;
   padding-left: 50%;
   margin-left: -12.5%; }
+/* line 41, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+.testimonials h4 {
+  text-align: center; }
 
-/* line 52, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+/* line 47, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
 body {
-  background-color: #F9F4EE; }
+  background-color: #ebebeb; }
 
 
 /*# sourceMappingURL=../../../../../../../../static/sass/main.css.map */

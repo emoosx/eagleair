@@ -22,11 +22,11 @@ class Booking(models.Model):
     country = models.CharField(verbose_name='Country', max_length=2,
                                choices=countries, blank=True)
     email = models.EmailField(verbose_name='Email')
-    creation_date = models.DateTimeField(verbose_name='Creation Date',
+    created_at = models.DateTimeField(verbose_name='Created At',
                                          auto_now_add=True)
 
     class Meta:
-        ordering = ['-creation_date']
+        ordering = ['-created_at']
 
     def __unicode__(self):
         return '#{} ({})'.format(self.pk, self.creation_date)
