@@ -1,3 +1,9 @@
-$('.datepicker').pickadate({
-  selectMonths: true
-});
+$(document).ready(function() {
+
+  $('select').material_select();
+
+  $('.datepicker').pickadate({
+    selectMonths: true,
+  });
+
+})

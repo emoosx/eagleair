@@ -22,6 +22,19 @@
               <h2 class="header center">Where would you like to go?</h2>
                 <form class="search-form">
                   {% csrf_token %}
+
+                  <div class="row">
+                      {% for radio in form.trip_type %}
+                      <div class="col s4 offset-s2">
+                        <p>
+                          {{ radio.tag }}
+                          <label for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
+                        </p>
+                      </div>
+                      {% endfor %}
+                  </div>
+
+
                   <div class="row">
                     <div class="col s12 m4">
                       <label for="{{form.no_of_guests.id_for_label}}">Guests</label>
@@ -53,13 +66,13 @@
                   </div>
 
 
+
                   <div class="row">
                     <div class="col s12">
                       <button class="btn waves-effect waves-light search-btn" type="submit" name="action">Search <i class="mdi-content-send right"></i> </button>
                     </div>
                   </div>
 
-                  
 
 <!--
    -                   <div class="col s12 m4">

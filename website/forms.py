@@ -19,22 +19,29 @@ class DatePickerWidget(Widget):
 
 
 class FrontPageSearchForm(forms.Form):
+    TRIP_TYPES = (
+        ('one-way', 'One Way'),
+        ('round', 'Round Trip')
+    )
     error_css_class = 'error'
     required_css_class = 'required'
+
+    trip_type = forms.ChoiceField(required=True,
+                                  choices=TRIP_TYPES,
+                                  widget=forms.RadioSelect(attrs={
+                                      'class': 'with-gap'}))
     no_of_guests = forms.ChoiceField(required=True,
                                      choices=[(i, i) for i in range(1, 11)],
-                                     widget=forms.Select(attrs={'class': 'browser-default'}))
+                                     widget=forms.Select)
     departure = forms.ModelChoiceField(label='From',
                                       queryset=Airport.objects.all(),
                                        required=True,
                                       empty_label=None,
-                                      widget=forms.Select(attrs={
-                                          'class': 'browser-default'}))
+                                      widget=forms.Select)
     arrival = forms.ModelChoiceField(label='To', queryset=Airport.objects.all(),
                                      required=True,
                                      empty_label=None,
-                                     widget=forms.Select(attrs={
-                                         'class': 'browser-default'}))
+                                     widget=forms.Select)
     depature_date = forms.DateField(widget=DatePickerWidget(attrs={
         'class': 'datepicker'}), required=True)
     arrival_date = forms.DateField(widget=DatePickerWidget(attrs={
