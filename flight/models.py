@@ -26,7 +26,10 @@ class Airport(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __unicode__(self):
-        return "%s - %s" % (self.iata_code, self.name)
+        return "%s (%s)" % (self.city, self.iata_code)
+
+    def __str__(self):
+        return "%s (%s)" % (self.city, self.iata_code)
 
 
 class Aircraft(models.Model):

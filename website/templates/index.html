@@ -20,43 +20,70 @@
           <section class="col s12 poster valign-wrapper">
             <div class="valign">
               <h2 class="header center">Where would you like to go?</h2>
-                <form>
-
+                <form class="search-form">
+                  <div class="row">
                   <div class="col s12 m4">
-                    <label for="">Guests</label>
-                    <select id="" name="" class="browser-default">
-                      <option value="1" selected>1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                    </select>
+                    <label for="{{form.no_of_guests.id_for_label}}">Guests</label>
+                    {{form.no_of_guests}}
                   </div>
 
                   <div class="col s12 m4">
-                  <label for="">From</label>
-                  <select id="" name="" class="browser-default">
-<option value="SIN" selected>Singapore (SIN)</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                  </select>
+                    <label for="{{form.depature.id_for_label}}">From</label>
+                    {{form.departure}}
                   </div>
 
                   <div class="col s12 m4">
-                  <label for="">To</label>
-                  <select id="" name="" class="browser-default">
-                    <option value="1" selected>New York (JFK)</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                  </select>
+                    <label for="{{form.arrival.id_for_label}}">To</label>
+                    {{form.arrival}}
                   </div>
+                </div>
+
+
+                  <div class="row">
+                    <div class="col s12">
+                      <button class="btn waves-effect waves-light search-btn" type="submit" name="action">Search <i class="mdi-content-send right"></i> </button>
+                    </div>
+                  </div>
+
+                  
+
+<!--
+   -                   <div class="col s12 m4">
+   -                     <label for="">Guests</label>
+   -                     <select id="" name="" class="browser-default">
+   -                       <option value="1" selected>1</option>
+   -                       <option value="2">2</option>
+   -                       <option value="3">3</option>
+   -                       <option value="4">4</option>
+   -                       <option value="5">5</option>
+   -                       <option value="6">6</option>
+   -                     </select>
+   -                   </div>
+   - 
+   -                   <div class="col s12 m4">
+   -                   <label for="">From</label>
+   -                   <select id="" name="" class="browser-default">
+   - <option value="SIN" selected>Singapore (SIN)</option>
+   -                     <option value="2">2</option>
+   -                     <option value="3">3</option>
+   -                     <option value="4">4</option>
+   -                     <option value="5">5</option>
+   -                     <option value="6">6</option>
+   -                   </select>
+   -                   </div>
+   - 
+   -                   <div class="col s12 m4">
+   -                   <label for="">To</label>
+   -                   <select id="" name="" class="browser-default">
+   -                     <option value="1" selected>New York (JFK)</option>
+   -                     <option value="2">2</option>
+   -                     <option value="3">3</option>
+   -                     <option value="4">4</option>
+   -                     <option value="5">5</option>
+   -                     <option value="6">6</option>
+   -                   </select>
+   -                   </div>
+   -->
                 </form>
             </div>
           </section>

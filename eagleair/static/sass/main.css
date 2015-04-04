@@ -20,15 +20,20 @@ body, h1 {
     font-weight: lighter; }
 
 /* line 36, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+.search-form .search-btn {
+  left: 50%;
+  margin-left: -77px; }
+
+/* line 43, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
 .testimonials i {
   text-align: center;
   padding-left: 50%;
   margin-left: -12.5%; }
-/* line 41, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+/* line 48, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
 .testimonials h4 {
   text-align: center; }
 
-/* line 47, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+/* line 54, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
 body {
   background-color: #ebebeb; }
 
