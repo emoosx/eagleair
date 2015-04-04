@@ -1,0 +1,3 @@
+$('.datepicker').pickadate({
+  selectMonths: true
+});
