@@ -39,12 +39,12 @@ class Aircraft(models.Model):
         (ECONOMOY_CLASS, 'Economy Class')
     )
     model = models.CharField("Model", max_length=16)
-    seat_count_F = models.IntegerField(max_length=3, default=0)
-    seat_count_B = models.IntegerField(max_length=3, default=0)
-    seat_count_E = models.IntegerField(max_length=3, default=0)
-    seats_in_a_row_F = models.IntegerField(default=0)
-    seats_in_a_row_B = models.IntegerField(default=0)
-    seats_in_a_row_E = models.IntegerField(default=0)
+    seat_count_F = models.IntegerField(max_length=3, default=6)
+    seat_count_B = models.IntegerField(max_length=3, default=20)
+    seat_count_E = models.IntegerField(max_length=3, default=60)
+    seats_in_a_row_F = models.IntegerField(default=2)
+    seats_in_a_row_B = models.IntegerField(default=4)
+    seats_in_a_row_E = models.IntegerField(default=6)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def total_seat_count(self, class_of_service):

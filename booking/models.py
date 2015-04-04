@@ -29,4 +29,4 @@ class Booking(models.Model):
         ordering = ['-created_at']
 
     def __unicode__(self):
-        return '#{} ({})'.format(self.pk, self.creation_date)
+        return '#{} ({})'.format(self.pk, self.created_at)

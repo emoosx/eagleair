@@ -72,6 +72,7 @@ THIRD_PARTY_APPS = (
     'materialize',
     'djangobower',
     'sass_processor',
+    'autofixture',
 )
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
