@@ -1,14 +1,14 @@
 from flight.models import Airport
 from django import forms
-from django.forms.extras.widgets import SelectDateWidget
-from django.contrib.admin.widgets import AdminDateWidget
 from django.forms import Widget
 from django.forms.utils import flatatt
 from django.utils.html import format_html
+import datetime
 
 
+DATE_FORMAT = '%d %B, %Y' # 17 April, 2015
 class DatePickerWidget(Widget):
-    def __init(self, attrs=None):
+    def __init__(self, attrs=None):
         super(DatePickerWidget, self).__init__(attrs)
 
     def render(self, name, value, attrs=None):
@@ -16,11 +16,18 @@ class DatePickerWidget(Widget):
         output = format_html(u'<input type="date" {0}>', flatatt(final_attrs))
         return output
 
+    def value_from_datadict(self, data, files, name):
+        date_data = data.get(name, '')
+        try:
+            D = datetime.datetime.strptime(date_data, DATE_FORMAT).date()
+            return D
+        except ValueError:
+            return ''
 
 
 class FrontPageSearchForm(forms.Form):
     TRIP_TYPES = (
-        ('one-way', 'One Way'),
+        ('one', 'One Way'),
         ('round', 'Round Trip')
     )
     error_css_class = 'error'
@@ -40,7 +47,6 @@ class FrontPageSearchForm(forms.Form):
                                       widget=forms.Select)
     arrival = forms.ModelChoiceField(label='To', queryset=Airport.objects.all(),
                                      required=True,
-                                     empty_label=None,
                                      widget=forms.Select)
     depature_date = forms.DateField(widget=DatePickerWidget(attrs={
         'class': 'datepicker'}), required=True)
