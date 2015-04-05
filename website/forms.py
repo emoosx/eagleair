@@ -73,4 +73,4 @@ class FrontPageSearchForm(forms.Form):
 
         if departure_date and arrival_date:
             if arrival_date < departure_date:
-                raise forms.ValidationError(_("Error! Arrival date can't be before Depature Date!"), code='invalid')
+                raise forms.ValidationError(("Error! Arrival date can't be before Depature Date!"), code='invalid')
