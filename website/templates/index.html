@@ -76,37 +76,43 @@
                   {% if form.errors %}
                   <div class="row error-wrapper">
                     <div class="card-panel error-panel red lighten-2">
+                      {% for error in form.non_field_errors %}
+                      <h5>Errors</h5>
+                      <ul>
+                        <li><strong> {{ error|escape }}</strong></li>
+                      </ul>
+                      {% endfor %}
                       {% if form.trip_type.errors %}
                         <h5>Trip Type</h5>
-                        <ol>
+                        <ul>
                           {% for error in form.trip_type.errors %}
                           <li><strong>{{ error|escape }}</strong></li>
                           {% endfor %}
-                        </ol>
+                        </ul>
                       {% endif %}
                       {% if form.depature_date.errors %}
                         <h5>Depature Date</h5>
-                        <ol>
+                        <ul>
                           {% for error in form.depature_date.errors %}
                           <li><strong>{{ error|escape }}</strong></li>
                           {% endfor %}
-                        </ol>
+                        </ul>
                       {% endif %}
                       {% if form.arrival_date.errors %}
                         <h5>Arrival Date</h5>
-                        <ol>
+                        <ul>
                           {% for error in form.arrival_date.errors %}
                           <li><strong>{{ error|escape }}</strong></li>
                           {% endfor %}
-                        </ol>
+                        </ul>
                       {% endif %}
                       {% if form.no_of_guests.errors %}
                         <h5>Guests No.</h5>
-                        <ol>
+                        <ul>
                           {% for error in form.no_of_guests.errors %}
                           <li><strong>{{ error|escape }}</strong></li>
                           {% endfor %}
-                        </ol>
+                        </ul>
                       {% endif %}
                     </div>
                   </div>

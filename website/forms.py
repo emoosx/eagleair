@@ -3,6 +3,7 @@ from django import forms
 from django.forms import Widget
 from django.forms.utils import flatatt
 from django.utils.html import format_html
+from django.forms import ValidationError
 import datetime
 
 
@@ -37,9 +38,7 @@ class FrontPageSearchForm(forms.Form):
                                   choices=TRIP_TYPES,
                                   widget=forms.RadioSelect(attrs={
                                       'class': 'with-gap'}))
-    no_of_guests = forms.ChoiceField(required=True,
-                                     choices=[(i, i) for i in range(1, 11)],
-                                     widget=forms.Select)
+    no_of_guests = forms.IntegerField(required=True)
     departure = forms.ModelChoiceField(label='From',
                                       queryset=Airport.objects.all(),
                                        required=True,
@@ -49,6 +48,29 @@ class FrontPageSearchForm(forms.Form):
                                      required=True,
                                      widget=forms.Select)
     depature_date = forms.DateField(widget=DatePickerWidget(attrs={
-        'class': 'datepicker'}), required=True)
+        'class': 'datepicker'}), required=True, initial=datetime.date.today)
     arrival_date = forms.DateField(widget=DatePickerWidget(attrs={
         'class': 'datepicker'}), required=False)
+
+
+    def clean(self):
+        cleaned_data = super(FrontPageSearchForm, self).clean()
+        departure = cleaned_data.get('departure')
+        arrival = cleaned_data.get('arrival')
+        departure_date = cleaned_data.get('depature_date')
+        arrival_date = cleaned_data.get('arrival_date')
+
+
+        if departure and arrival:
+            if departure == arrival:
+                raise ValidationError(('Invalid travel destinations'),
+                                      code='invalid')
+
+        if departure_date:
+            if departure_date < datetime.date.today():
+                raise ValidationError(("Choose a sensible date!"),
+                                      code='invalid')
+
+        if departure_date and arrival_date:
+            if arrival_date < departure_date:
+                raise forms.ValidationError(_("Error! Arrival date can't be before Depature Date!"), code='invalid')

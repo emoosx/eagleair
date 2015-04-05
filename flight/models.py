@@ -3,7 +3,7 @@ from international.models import countries
 
 
 class Airline(models.Model):
-    name = models.CharField("Name", max_length=100)
+    name = models.CharField("Name", max_length=50)
     country = models.CharField(verbose_name='Country', max_length=2, choices=countries, blank=True)
     iata_code = models.CharField("IATA Code", max_length=3,
                                  blank=True, null=True)
@@ -19,8 +19,8 @@ class Airline(models.Model):
 
 class Airport(models.Model):
     iata_code = models.CharField("IATA Code", max_length=3, primary_key=True)
-    name = models.CharField("Name", max_length=100)
-    city = models.CharField("City", max_length=100)
+    name = models.CharField("Name", max_length=50)
+    city = models.CharField("City", max_length=50)
     country = models.CharField(verbose_name='Country', max_length=2,
                                choices=countries, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
