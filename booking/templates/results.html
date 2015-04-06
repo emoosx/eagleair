@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<ul>
+{% for flight in available_flights %}
+<li>{{flight.code}}</li>
+{% endfor %}
+</ul>
+
+{% endblock content %}

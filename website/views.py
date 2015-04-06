@@ -1,11 +1,11 @@
-from django.views.generic import FormView
+from django.views.generic.edit import FormView
 from forms import FrontPageSearchForm
 
 
 class IndexView(FormView):
     template_name = 'index.html'
     form_class = FrontPageSearchForm
-    success_url = '.'
+    success_url = 'booking/search_results/'
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
@@ -13,4 +13,3 @@ class IndexView(FormView):
 
     def form_valid(self, form):
         return super(IndexView, self).form_valid(form)
-
