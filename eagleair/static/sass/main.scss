@@ -48,6 +48,40 @@ body, h1 {
   }
 }
 
+.flight-list {
+  li {
+    float: left;
+
+    .flight-code {
+      display: block;
+      line-height: 1.5em;
+      margin-bottom: 1em;
+    }
+
+    .flight-departure {
+      float: left;
+      width: 150px;
+      height: 100px;
+    }
+
+    .flight-arrival {
+      margin-left: 150px;
+      height: 100px;
+    }
+
+  }
+
+  .time {
+    display: block;
+    font-size: 1.9rem;
+    line-height: 28px;
+  }
+  .airport {
+    display: inline;
+  }
+
+}
+
 .testimonials {
   i {
     text-align: center;
@@ -59,6 +93,10 @@ body, h1 {
   }
 }
 
+
+.clear {
+  clear: both;
+}
 
 body {
   background-color: $body-bg;

@@ -32,15 +32,45 @@ body, h1 {
   margin-left: 1em; }
 
 /* line 52, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+.flight-list li {
+  float: left; }
+  /* line 55, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+  .flight-list li .flight-code {
+    display: block;
+    line-height: 1.5em;
+    margin-bottom: 1em; }
+  /* line 61, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+  .flight-list li .flight-departure {
+    float: left;
+    width: 150px;
+    height: 100px; }
+  /* line 67, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+  .flight-list li .flight-arrival {
+    margin-left: 150px;
+    height: 100px; }
+/* line 74, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+.flight-list .time {
+  display: block;
+  font-size: 1.9rem;
+  line-height: 28px; }
+/* line 79, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+.flight-list .airport {
+  display: inline; }
+
+/* line 86, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
 .testimonials i {
   text-align: center;
   padding-left: 50%;
   margin-left: -12.5%; }
-/* line 57, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+/* line 91, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
 .testimonials h4 {
   text-align: center; }
 
-/* line 63, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+/* line 97, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+.clear {
+  clear: both; }
+
+/* line 101, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
 body {
   background-color: #ebebeb; }
 

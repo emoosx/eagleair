@@ -2,10 +2,62 @@
 {% load staticfiles %}
 {% block content %}
 
-<ul>
-{% for flight in available_flights %}
-<li>{{flight.code}}</li>
-{% endfor %}
-</ul>
+<div class="section" id="index-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m9">
+      <h1 class="header center-on-small-only">Search Results</h1>
+    <h4 class="light red-text text-lighten-4 center-on-small-only">Lorem alias minus iste illo debitis nemo similique reprehenderit cumque. Iste facilis aperiam possimus</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <section class="section col s12 m9 l10">
+      <h2 class="header col s12">Available Flights</h2>
+    </section>
+
+    <section class="col s12 section m9 l10 flight-list">
+        <ul class="collection">
+        {% for flight in available_flights %}
+          <li class="flight-details collection-item">
+            <div class="flight-info">
+              <a href="#" class="flight-code">{{flight.code}}</a>
+
+              <div class="flight-departure">
+                <span class="time">{{flight.departure_time}}</span>
+                <span class="airport">{{flight.from_airport}}</span>
+              </div>
+              <div class="flight-arrival">
+                <span class="time">{{flight.arrival_time}}</span>
+                <span class="airport">{{flight.to_airport}}</span>
+              </div>
+
+            </div>
+          </li>
+        {% endfor %}
+        </ul>
+
+
+        <!-- <div class="row"> -->
+          <!-- <div class="flight"> -->
+            <!-- <h5 class="flight-code">{{flight.code}}</h5> -->
+            <!-- <div class="flight-details"> -->
+              <!-- <span class="flight-departure">{{flight.departure_time}} {{flight.from_airport}}</span> &#8594; -->
+              <!-- <span class="flight-arrival">{{flight.arrival_time}} {{flight.to_airport}}</span> -->
+            <!-- </div> -->
+            <!-- <div class="flight-prices"> -->
+              <!-- <span class="">$403</span> -->
+              <!-- <span class="">$403</span> -->
+              <!-- <span class="">$403</span> -->
+            <!-- </div> -->
+            <!-- <div class="clear"> </div> -->
+        <!-- </div> -->
+    </section>
+
+  </div>
+</div>
 
 {% endblock content %}
