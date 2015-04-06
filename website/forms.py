@@ -47,7 +47,7 @@ class FrontPageSearchForm(forms.Form):
     arrival = forms.ModelChoiceField(label='To', queryset=Airport.objects.all(),
                                      required=True,
                                      widget=forms.Select)
-    depature_date = forms.DateField(widget=DatePickerWidget(attrs={
+    departure_date = forms.DateField(widget=DatePickerWidget(attrs={
         'class': 'datepicker'}), required=True, initial=datetime.date.today)
     arrival_date = forms.DateField(widget=DatePickerWidget(attrs={
         'class': 'datepicker'}), required=False)
