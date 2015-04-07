@@ -55,6 +55,7 @@ WSGI_APPLICATION = 'eagleair.wsgi.application'
 BOWER_COMPONENTS_ROOT = os.path.join(PROJECT_ROOT, 'components')
 
 DJANGO_APPS = (
+    'django_admin_bootstrapped',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -72,7 +73,7 @@ THIRD_PARTY_APPS = (
     'materialize',
     'djangobower',
     'sass_processor',
-    'autofixture',
+    'autofixture'
 )
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS

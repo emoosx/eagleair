@@ -37,6 +37,9 @@ class SearchResultsView(ListView):
                     Q(arrival_date = _arrival_date)
                 )
 
+        print available_flights.query
+
+
         return available_flights
 
     def get_context_data(self, **kwargs):
