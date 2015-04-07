@@ -4,6 +4,7 @@ from django.forms import Widget
 from django.forms.utils import flatatt
 from django.utils.html import format_html
 from django.forms import ValidationError
+from django.contrib.auth.models import User
 import datetime
 
 
@@ -74,3 +75,21 @@ class FrontPageSearchForm(forms.Form):
         if departure_date and arrival_date:
             if arrival_date < departure_date:
                 raise forms.ValidationError(("Error! Arrival date can't be before Depature Date!"), code='invalid')
+
+
+class RegistrationForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput())
+    confirm_password = forms.CharField(widget=forms.PasswordInput())
+
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'username', 'email', 'password')
+
+    def __init__(self, *args, **kwargs):
+        super(RegistrationForm, self).__init__(*args, **kwargs)
+        self.fields['first_name'].widget.attrs['placeholder'] = "First Name"
+        self.fields['last_name'].widget.attrs['placeholder'] = "Last Name"
+        self.fields['username'].widget.attrs['placeholder'] = "Username"
+        self.fields['email'].widget.attrs['placeholder'] = "Email"
+        self.fields['password'].widget.attrs['placeholder'] = "Password"
+        self.fields['confirm_password'].widget.attrs['placeholder'] = "Confirm Password"

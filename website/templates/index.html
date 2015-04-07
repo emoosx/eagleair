@@ -21,7 +21,6 @@
             <div class="valign">
               <h2 class="header center">Where would you like to go?</h2>
                 <form class="search-form" action="booking/search_results/" method="get">
-                  {% csrf_token %}
 
                   <div class="row">
                       {% for radio in form.trip_type %}
