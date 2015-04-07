@@ -10,8 +10,10 @@ https://docs.djangoproject.com/en/1.7/howto/deployment/wsgi/
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "eagleair.settings.base")
 
+import sys
 from django.core.wsgi import get_wsgi_application
 from dj_static import Cling
+from os.path import abspath, dirname, join
 
 
 application = Cling(get_wsgi_application())

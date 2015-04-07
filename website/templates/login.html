@@ -1,6 +1,35 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-{{form}}
 
 {% block content %}
+<div class="container">
+  <div class="row">
+    <form action="/login/" method="post">
+      {% csrf_token %}
+      {% if next %}
+      <input type="hidden" name="next" value="{{ next }}" />
+      {% endif %}
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="mdi-action-account-circle prefix"></i>
+        <input id="username" name="username" class="validate" type="text" placeholder="Username">
+        <label for="username">Username</label>
+      </div>
+      <div class="input-field col s12">
+        <i class="mdi-communication-vpn-key prefix"></i>
+        <input id="password" class="validate" type="password" placeholder="Password" name="password">
+        <label for="password">Password</label>
+      </div>
+
+
+      <div class="col s12">
+<button class="btn waves-effect weaves-light right" type="submit" name="action">Login
+        <i class="mdi-content-send right"></i></button>
+    </div>
+
+
+    </div>
+    </form>
+  </div>
+  </div>
 {% endblock %}

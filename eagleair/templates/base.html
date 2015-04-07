@@ -24,7 +24,11 @@
       <nav role="navigation" class="blacken">
         <div class="nav-wrapper container">
           <ul class="right">
-            <li><a href="#">Register/Sign In</a></li>
+            {% if user %}
+            <li><a href="#">Hello, {{user}}</a></li>
+            {% else %}
+            <li><a href="/login/">Register/Sign In</a></li>
+            {% endif %}
           </ul>
 
           <!-- <ul class="side-nav" id="nav-mobile"> -->
