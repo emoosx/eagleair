@@ -39,3 +39,8 @@ def login_user(request):
                 login(request, user)
                 return redirect('website:index')
     return render_to_response('login.html', context_instance=RequestContext(request))
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('website:index')

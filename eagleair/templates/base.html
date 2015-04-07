@@ -24,8 +24,9 @@
       <nav role="navigation" class="blacken">
         <div class="nav-wrapper container">
           <ul class="right">
-            {% if user %}
+            {% if user.is_authenticated %}
             <li><a href="#">Hello, {{user}}</a></li>
+            <li><a href="/logout/">Logout</a></li>
             {% else %}
             <li><a href="/login/">Register/Sign In</a></li>
             {% endif %}
