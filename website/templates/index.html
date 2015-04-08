@@ -4,18 +4,6 @@
 {% block content %}
     <div class="section no-pad-bot no-pad-top" id="index-banner">
 
-
-        <!--
-           - <div class="row">
-           -   <section class="col s12 poster valign-wrapper">
-           -     <div class="valign">
-           -       <h1 class="header center">Eagle Airlines</h1>
-           -       <div class="row center"> <h5 class="header col s12 slogan">Fly the Friendly skies.</h5> </div>
-           -     </div>
-           -   </section>
-           - </div>
-           -->
-
         <div class="row">
           <section class="col s12 poster valign-wrapper">
             <div class="valign">
@@ -32,7 +20,6 @@
                       </div>
                       {% endfor %}
                   </div>
-
 
                   <div class="row">
                     <div class="col s12 m4">
@@ -64,8 +51,6 @@
                     </div>
                   </div>
 
-
-
                   <div class="row">
                     <div class="col s12">
                       <button class="btn waves-effect waves-light search-btn" type="submit" name="action">Search <i class="mdi-content-send right"></i> </button>
@@ -74,7 +59,7 @@
 
                   {% if form.errors %}
                   <div class="row error-wrapper">
-                    <div class="card-panel error-panel red lighten-2">
+                    <div class="card-panel error-panel red lighten-3">
                       {% for error in form.non_field_errors %}
                       <h5>Errors</h5>
                       <ul>
@@ -121,55 +106,69 @@
           </section>
         </div>
 
+        <div class="divider"></div>
+
         {% if available_flights %}
-        <section class="container results">
-          <section class="flight-list">
-            <ul class="collection">
-              {% for flight in available_flights %}
-              <li class="flight-details collection-item">
-                <div class="flight-info">
-                  <a href="#" class="flight-code">{{flight.code}}</a>
+        <div class="row">
+          <section class="container results">
+            <div class="row">
+              <section class="section col s12">
+                <h3 class="header col s12"> Available Flights</h3>
+              </section>
+            </div>
 
-                  <div class="flight-departure">
-                    <span class="time">{{flight.departure_time}}</span>
-                    <span class="airport">{{flight.from_airport}}</span>
-                  </div>
+            <div class="row center">
+              <section class="flight-list col s12 center">
+                <ul class="collection">
+                  {% for flight in available_flights %}
+                  <li class="flight-details collection-item">
+                    <div class="flight-info">
+                      <a href="#" class="flight-code">{{flight.code}}</a>
 
-                  <div class="flight-arrival">
-                    <span class="time">{{flight.arrival_time}}</span>
-                    <span class="airport">{{flight.to_airport}}</span>
-                  </div>
+                      <div class="flight-departure">
+                        <span class="time">{{flight.departure_time}}</span>
+                        <span class="airport">{{flight.from_airport}}</span>
+                      </div>
 
-                </div>
-              </li>
-              {% endfor %}
-            </ul>
+                      <div class="flight-arrival">
+                        <span class="time">{{flight.arrival_time}}</span>
+                        <span class="airport">{{flight.to_airport}}</span>
+                      </div>
+
+                    </div>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </section>
+            </div>
           </section>
-        </section>
+        </div>
         {% endif %}
 
+        <div class="divider"></div>
+        <div class="row">
+          <section class="container testimonials">
+              <div class="row">
+                <div class="col m4"> 
+                  <i class="large mdi-hardware-watch"></i>
+                  <h4>Fly like a boss</h4>
+                  <p>
+                    Lorem consectetur dolor quidem nulla veritatis quos soluta. ullam molestiae consequuntur doloremque amet non repellendus sequi sit eum! suscipit possimus quia quam nihil facere. nostrum cum quas excepturi optio perferendis incidunt. Consectetur atque consequatur cum aliquam at alias consequuntur libero deserunt soluta voluptates magnam tenetur cumque eveniet officiis, quisquam! Minus itaque vel deserunt rem reiciendis dolore quas voluptate. Molestias quibusdam voluptatum.
+                  </p>
+                  </div>
+                <div class="col m4"> 
+                <i class="large mdi-action-face-unlock"></i>
+                <h4>Fly Higher</h4>
+                <p>
+          Lorem porro ab labore harum numquam. minima nam mollitia architecto ea magnam! repellendus consectetur ullam fuga omnis sed in nam ducimus. debitis a expedita doloremque sint voluptate eum porro a? Elit deleniti enim nemo quidem beatae vero consequatur aut facilis veniam odit. Pariatur unde aliquid laboriosam a aut? Ratione officia qui laboriosam eligendi fugit quis! Eveniet alias amet quos recusandae. </p></div>
 
-<section class="container testimonials">
-    <div class="row">
-      <div class="col s4"> 
-        <i class="large mdi-hardware-watch"></i>
-        <h4>Fly like a boss</h4>
-        <p>
-          Lorem consectetur dolor quidem nulla veritatis quos soluta. ullam molestiae consequuntur doloremque amet non repellendus sequi sit eum! suscipit possimus quia quam nihil facere. nostrum cum quas excepturi optio perferendis incidunt. Consectetur atque consequatur cum aliquam at alias consequuntur libero deserunt soluta voluptates magnam tenetur cumque eveniet officiis, quisquam! Minus itaque vel deserunt rem reiciendis dolore quas voluptate. Molestias quibusdam voluptatum.
-        </p>
+                <div class="col m4"> 
+                <i class="large mdi-action-favorite"></i>
+                <h4>Satisfaction</h4>
+                <p>
+                  lorem quasi natus tempora harum aliquam. vel ad voluptate quas quod laborum dicta corporis quidem, laborum nulla. impedit labore vitae corporis deserunt ea rem omnis maiores? placeat quia repellat saepe! Amet velit tenetur quidem eius ipsum, animi iure obcaecati. Iusto dolorum ducimus aperiam autem magni blanditiis ratione accusantium ipsum perferendis. Quos suscipit vero dolore quisquam nam asperiores, quo, voluptas natus!</p></div>
+              </div>
+
+          </section>
         </div>
-      <div class="col s4"> 
-      <i class="large mdi-action-face-unlock"></i>
-      <h4>Fly Higher</h4>
-      <p>
-Lorem porro ab labore harum numquam. minima nam mollitia architecto ea magnam! repellendus consectetur ullam fuga omnis sed in nam ducimus. debitis a expedita doloremque sint voluptate eum porro a? Elit deleniti enim nemo quidem beatae vero consequatur aut facilis veniam odit. Pariatur unde aliquid laboriosam a aut? Ratione officia qui laboriosam eligendi fugit quis! Eveniet alias amet quos recusandae. </p></div>
-
-      <div class="col s4"> 
-      <i class="large mdi-action-favorite"></i>
-      <h4>Satisfaction</h4>
-      <p>
-        lorem quasi natus tempora harum aliquam. vel ad voluptate quas quod laborum dicta corporis quidem, laborum nulla. impedit labore vitae corporis deserunt ea rem omnis maiores? placeat quia repellat saepe! Amet velit tenetur quidem eius ipsum, animi iure obcaecati. Iusto dolorum ducimus aperiam autem magni blanditiis ratione accusantium ipsum perferendis. Quos suscipit vero dolore quisquam nam asperiores, quo, voluptas natus!</p></div>
-    </div>
-
-</section>
 {% endblock content %}
