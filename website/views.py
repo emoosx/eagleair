@@ -1,30 +1,52 @@
-from django.views.generic.edit import FormView
-from django.contrib.auth import authenticate, login, logout
-from django.shortcuts import render_to_response, redirect, render
 from django.core.urlresolvers import reverse_lazy
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
+from django.db.models import Q
+from django.views.generic.edit import FormView
 from django.contrib.auth.models import User
+from flight.models import Flight
 from website.forms import FrontPageSearchForm, RegistrationForm
 from pprint import pprint
+from datetime import datetime
 
+DATE_FORMAT = "%d %B, %Y"
 
 class IndexView(FormView):
     template_name = 'index.html'
     form_class = FrontPageSearchForm
-    success_url = 'booking/search_results/'
+    success_url = '.'
 
     def get(self, *args, **kwargs):
-        form = FrontPageSearchForm(self.request.GET)
+        if self.request.GET:
+            form = FrontPageSearchForm(data=self.request.GET)
+            if form.is_valid():
+                _no_of_guests = self.request.GET.get('no_of_guests')
+                _trip_type = self.request.GET.get('trip_type')
+                _departure = self.request.GET.get('departure')
+                _departure_date = self.request.GET.get('departure_date')
+                _departure_date = datetime.strptime(_departure_date, DATE_FORMAT).date()
+                _arrival = self.request.GET.get('arrival')
+                _arrival_date = self.request.GET.get('arrival_date', None)
+                available_flights = Flight.objects.filter(
+                    Q(from_airport__iata_code=_departure) &
+                    Q(to_airport__iata_code=_arrival) &
+                    Q(departure_date=_departure_date)
+                )
+                if _trip_type != "one":
+                    if _arrival_date:
+                        _arrival_date = datetime.strptime(_arrival_date, DATE_FORMAT).date()
+                        available_flights = available_flights.filter(
+                            Q(arrival_date = _arrival_date)
+                        )
+
+
+                pprint(available_flights)
+                return self.render_to_response(self.get_context_data(form=form, available_flights=available_flights))
+
+            else: # form is invalid
+                return self.render_to_response(self.get_context_data(form=form))
         return super(IndexView, self).get(*args, **kwargs)
 
-
-    def get_context_data(self, **kwargs):
-        context = super(IndexView, self).get_context_data(**kwargs)
-        return context
-
-    def form_valid(self, form):
-        return super(IndexView, self).form_valid(form)
 
 
 def login_user(request):
@@ -48,7 +70,6 @@ def logout_user(request):
 
 
 def register_user(request):
-    print 'here'
     registered = False
     if request.POST:
 

@@ -20,7 +20,7 @@
           <section class="col s12 poster valign-wrapper">
             <div class="valign">
               <h2 class="header center">Where would you like to go?</h2>
-                <form class="search-form" action="booking/search_results/" method="get">
+                <form class="search-form" action="." method="get">
 
                   <div class="row">
                       {% for radio in form.trip_type %}
@@ -89,10 +89,10 @@
                           {% endfor %}
                         </ul>
                       {% endif %}
-                      {% if form.depature_date.errors %}
+                      {% if form.departure_date.errors %}
                         <h5>Depature Date</h5>
                         <ul>
-                          {% for error in form.depature_date.errors %}
+                          {% for error in form.departure_date.errors %}
                           <li><strong>{{ error|escape }}</strong></li>
                           {% endfor %}
                         </ul>
@@ -116,52 +116,38 @@
                     </div>
                   </div>
                   {% endif %}
-
-
-<!--
-   -                   <div class="col s12 m4">
-   -                     <label for="">Guests</label>
-   -                     <select id="" name="" class="browser-default">
-   -                       <option value="1" selected>1</option>
-   -                       <option value="2">2</option>
-   -                       <option value="3">3</option>
-   -                       <option value="4">4</option>
-   -                       <option value="5">5</option>
-   -                       <option value="6">6</option>
-   -                     </select>
-   -                   </div>
-   - 
-   -                   <div class="col s12 m4">
-   -                   <label for="">From</label>
-   -                   <select id="" name="" class="browser-default">
-   - <option value="SIN" selected>Singapore (SIN)</option>
-   -                     <option value="2">2</option>
-   -                     <option value="3">3</option>
-   -                     <option value="4">4</option>
-   -                     <option value="5">5</option>
-   -                     <option value="6">6</option>
-   -                   </select>
-   -                   </div>
-   - 
-   -                   <div class="col s12 m4">
-   -                   <label for="">To</label>
-   -                   <select id="" name="" class="browser-default">
-   -                     <option value="1" selected>New York (JFK)</option>
-   -                     <option value="2">2</option>
-   -                     <option value="3">3</option>
-   -                     <option value="4">4</option>
-   -                     <option value="5">5</option>
-   -                     <option value="6">6</option>
-   -                   </select>
-   -                   </div>
-   -->
                 </form>
             </div>
           </section>
         </div>
 
+        {% if available_flights %}
+        <section class="container results">
+          <section class="flight-list">
+            <ul class="collection">
+              {% for flight in available_flights %}
+              <li class="flight-details collection-item">
+                <div class="flight-info">
+                  <a href="#" class="flight-code">{{flight.code}}</a>
 
-      
+                  <div class="flight-departure">
+                    <span class="time">{{flight.departure_time}}</span>
+                    <span class="airport">{{flight.from_airport}}</span>
+                  </div>
+
+                  <div class="flight-arrival">
+                    <span class="time">{{flight.arrival_time}}</span>
+                    <span class="airport">{{flight.to_airport}}</span>
+                  </div>
+
+                </div>
+              </li>
+              {% endfor %}
+            </ul>
+          </section>
+        </section>
+        {% endif %}
+
 
 <section class="container testimonials">
     <div class="row">

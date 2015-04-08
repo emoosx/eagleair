@@ -4,6 +4,7 @@ from flight.models import Flight
 from django.db.models import Q
 from pprint import pprint
 from datetime import datetime
+from website.forms import FrontPageSearchForm
 
 
 class SearchResultsView(ListView):
@@ -37,14 +38,16 @@ class SearchResultsView(ListView):
                     Q(arrival_date = _arrival_date)
                 )
 
-        print available_flights.query
-
 
         return available_flights
 
     def get_context_data(self, **kwargs):
         context = super(SearchResultsView, self).get_context_data(**kwargs)
         return context
+
+    def get(self, *args, **kwargs):
+        form = FrontPageSearchForm(data=self.request.GET)
+        return super(SearchResultsView, self).get(*args, **kwargs)
 
 
 class FlightDetailView(DetailView):

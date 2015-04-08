@@ -5,6 +5,7 @@ from django.forms.utils import flatatt
 from django.utils.html import format_html
 from django.forms import ValidationError
 from django.contrib.auth.models import User
+from pprint import pprint
 import datetime
 
 
@@ -24,7 +25,7 @@ class DatePickerWidget(Widget):
             D = datetime.datetime.strptime(date_data, DATE_FORMAT).date()
             return D
         except ValueError:
-            return ''
+            return None
 
 
 class FrontPageSearchForm(forms.Form):
@@ -56,14 +57,16 @@ class FrontPageSearchForm(forms.Form):
 
     def clean(self):
         cleaned_data = super(FrontPageSearchForm, self).clean()
-        departure = cleaned_data.get('departure')
-        arrival = cleaned_data.get('arrival')
-        departure_date = cleaned_data.get('depature_date')
-        arrival_date = cleaned_data.get('arrival_date')
+        trip_type = cleaned_data.get('trip_type', None)
+        departure = cleaned_data.get('departure', None)
+        arrival = cleaned_data.get('arrival', None)
+        departure_date = cleaned_data.get('departure_date', None)
+        arrival_date = cleaned_data.get('arrival_date', None)
+
 
 
         if departure and arrival:
-            if departure == arrival:
+            if departure == arrival and trip_type == 'one':
                 raise ValidationError(('Invalid travel destinations'),
                                       code='invalid')
 

@@ -1,10 +1,12 @@
 from international.models import countries
 from django.db import models
+from flight.models import Flight
 
 
 
 class Booking(models.Model):
     user = models.ForeignKey('auth.User', blank=True, null=True)
+    flight_id = models.ForeignKey(Flight, verbose_name='Flight')
     first_name = models.CharField(verbose_name='First Name',
                                   max_length=20, blank=True)
     last_name = models.CharField(verbose_name='Sirname',
