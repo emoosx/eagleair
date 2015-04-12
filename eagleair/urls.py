@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from admin import user_admin_site
 
 urlpatterns = patterns('',
     url(r'^', include('website.urls', namespace='website')),
