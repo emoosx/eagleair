@@ -66,16 +66,14 @@ body, h1 {
     .flight-departure, .flight-arrival {
       display: table-cell;
       padding: 2em 2.5em;
-      position: relative;
       .date {
-        position: absolute;
-        top: 0;
+        display: table-row;
       }
       .time {
-        position: absolute;
-        bottom: 0;
+        display: table-row;
       }
       .airport {
+        display: table-row;
         font-weight: bold;
       }
     }
@@ -88,10 +86,12 @@ body, h1 {
       .seats {
         border: 1px solid #333;
         padding: 1em;
+        display: table-row;
       }
       .prices {
         text-align: center;
         float: left;
+        display: table-row;
       }
     }
 

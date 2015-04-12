@@ -49,32 +49,32 @@ body, h1 {
     /* line 66, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
     .flight-list .flight-info .flight-departure, .flight-list .flight-info .flight-arrival {
       display: table-cell;
-      padding: 2em 2.5em;
-      position: relative; }
-      /* line 70, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+      padding: 2em 2.5em; }
+      /* line 69, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
       .flight-list .flight-info .flight-departure .date, .flight-list .flight-info .flight-arrival .date {
-        position: absolute;
-        top: 0; }
-      /* line 74, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+        display: table-row; }
+      /* line 72, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
       .flight-list .flight-info .flight-departure .time, .flight-list .flight-info .flight-arrival .time {
-        position: absolute;
-        bottom: 0; }
-      /* line 78, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+        display: table-row; }
+      /* line 75, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
       .flight-list .flight-info .flight-departure .airport, .flight-list .flight-info .flight-arrival .airport {
+        display: table-row;
         font-weight: bold; }
-    /* line 83, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+    /* line 81, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
     .flight-list .flight-info .first-class, .flight-list .flight-info .business-class, .flight-list .flight-info .economy-class {
       display: table-cell;
       padding: 2em 2.5em;
       height: 100%; }
-      /* line 88, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+      /* line 86, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
       .flight-list .flight-info .first-class .seats, .flight-list .flight-info .business-class .seats, .flight-list .flight-info .economy-class .seats {
         border: 1px solid #333;
-        padding: 1em; }
-      /* line 92, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+        padding: 1em;
+        display: table-row; }
+      /* line 91, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
       .flight-list .flight-info .first-class .prices, .flight-list .flight-info .business-class .prices, .flight-list .flight-info .economy-class .prices {
         text-align: center;
-        float: left; }
+        float: left;
+        display: table-row; }
 
 /* .time { */
 /* display: block; */
