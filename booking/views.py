@@ -1,54 +1,31 @@
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import FormMixin
 from flight.models import Flight
 from django.db.models import Q
+from django import forms
 from pprint import pprint
 from datetime import datetime
-from website.forms import FrontPageSearchForm
 
 
-class SearchResultsView(ListView):
-    template_name = 'results.html'
-    context_object_name = 'available_flights'
-
-    def get_queryset(self):
-
-        DATE_FORMAT = "%d %B, %Y"
-        _no_of_guests = self.request.GET.get('no_of_guests')
-        _trip_type = self.request.GET.get('trip_type')
-        _departure = self.request.GET.get('departure')
-        _departure_date = self.request.GET.get('departure_date')
-        _departure_date = datetime.strptime(_departure_date, DATE_FORMAT).date()
-        _arrival = self.request.GET.get('arrival')
-        _arrival_date = self.request.GET.get('arrival_date', '')
-
-        print _departure_date
+class PurchaseForm(forms.Form):
+    first_class = forms.IntegerField(required=True)
+    business_class = forms.IntegerField(required=True)
+    economy_class = forms.IntegerField(required=True)
 
 
-        available_flights = Flight.objects.filter(
-            Q(from_airport__iata_code = _departure) &
-            Q(to_airport__iata_code = _arrival) &
-            Q(departure_date = _departure_date)
-        )
-
-        if _trip_type != "one":
-            if _arrival_date:
-                _arrival_date = datetime.strptime(_arrival_date, DATE_FORMAT).date()
-                available_flights = available_flights.filter(
-                    Q(arrival_date = _arrival_date)
-                )
-
-
-        return available_flights
+class FlightDetailView(FormMixin, DetailView):
+    model = Flight
+    context_object_name = 'flight'
+    template_name = 'flight_details.html'
+    form_class = PurchaseForm
+    success_url = '.'
 
     def get_context_data(self, **kwargs):
-        context = super(SearchResultsView, self).get_context_data(**kwargs)
+        context = super(FlightDetailView, self).get_context_data(**kwargs)
+        form_class = self.get_form_class()
+        context['form'] = self.get_form(form_class)
         return context
 
-    def get(self, *args, **kwargs):
-        form = FrontPageSearchForm(data=self.request.GET)
-        return super(SearchResultsView, self).get(*args, **kwargs)
-
-
-class FlightDetailView(DetailView):
-    template_name = 'flight_details.html'
+    def form_valid(self, form):
+        return super(FlightDetailView, self).form_valid(form)

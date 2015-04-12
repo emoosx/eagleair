@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<section class="section">
+<div class="row">
+   <div class="card col m4">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="https://placeimg.com/100/100/nature">
+        </div>
+
+        <div class="card-content">
+<span class="card-title activator grey-text text-darken-4">First Class Title <i class="mdi-navigation-more-vert right"></i></span>
+<p><a href="#">Read more</a></p>
+        </div>
+
+        <div class="card-reveal">
+<span class="card-title grey-text text-darken-4">First Class <i class="mdi-navigation-close right"></i></span>
+<p>Consectetur eius dolor ipsa aliquam eius ad! Saepe fuga placeat maiores quos nesciunt. Molestias non placeat tempore quis atque explicabo ipsa temporibus repellendus? Enim dolorum doloribus incidunt non libero. Similique?  </p>
+        </div>
+
+    </div>
+
+   <div class="card col m4">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="https://placeimg.com/100/100/animals">
+        </div>
+
+        <div class="card-content">
+<span class="card-title activator grey-text text-darken-4">Business Class <i class="mdi-navigation-more-vert right"></i></span>
+<p><a href="#">Read more</a></p>
+        </div>
+
+        <div class="card-reveal">
+<span class="card-title grey-text text-darken-4">Business Class <i class="mdi-navigation-close right"></i></span>
+<p>Amet est adipisci dignissimos numquam unde adipisci ipsum consectetur earum? Nostrum quod id nemo repellat eius! Unde nulla accusamus doloremque enim laboriosam ex exercitationem. Rerum iusto aperiam ducimus modi repellendus.</p>
+        </div>
+
+    </div>
+
+   <div class="card col m4">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="https://placeimg.com/100/100/any">
+        </div>
+
+        <div class="card-content">
+<span class="card-title activator grey-text text-darken-4">Economy Class <i class="mdi-navigation-more-vert right"></i></span>
+<p><a href="#">Read more</a></p>
+        </div>
+
+        <div class="card-reveal">
+<span class="card-title grey-text text-darken-4">Economy Class <i class="mdi-navigation-close right"></i></span>
+<p>Dolor at quasi officia laudantium eligendi. Sunt iste quaerat doloremque unde voluptatibus recusandae. Ipsam sint sapiente veritatis quam laboriosam illo, nostrum modi exercitationem perferendis, veritatis dolore ipsa quis pariatur quam.</p>
+        </div>
+
+    </div>
+</div>
+</section>
+<section class='section'>
+<div class="row">
+  <div class="col s12">
+    <form class="purchase-form" action="" method="post">
+      <div class="row">
+        <div class="col s4">
+          <p>{{flight.aircraft.seat_count_F}}</p>
+        </div>
+        <div class="col s8">
+          <label for="{{form.first_class.id_for_label}}">First Class</label>
+          {{form.first_class}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s4">
+          <p>{{flight.aircraft.seat_count_B}}</p>
+        </div>
+
+        <div class="col s8">
+          <label for="{{form.business_class.id_for_label}}">Business Class</label>
+          {{form.business_class}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s4">
+          <p>{{flight.aircraft.seat_count_E}}</p>
+        </div>
+        <div class="col s8">
+          <label for="{{form.economy_class.id_for_label}}">Economy Class</label>
+          {{form.economy_class}}
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+</section>
+
+
+      {% endblock content %}

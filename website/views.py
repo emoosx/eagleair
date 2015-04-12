@@ -38,17 +38,27 @@ class IndexView(FormView):
                     Q(to_airport__iata_code=_arrival) &
                     Q(departure_date=_departure_date) &
                     Q(aircraft__in=aircrafts)
-                    # Q(aircraft__seats__gte=_no_of_guests)
                 )
+
+                return_flights = None
                 if _trip_type != "one":
                     if _arrival_date:
                         _arrival_date = datetime.strptime(_arrival_date, DATE_FORMAT).date()
-                        available_flights = available_flights.filter(
-                            Q(arrival_date = _arrival_date)
+
+                        return_flights = Flight.objects.filter(
+                            Q(from_airport__iata_code=_arrival) &
+                            Q(to_airport__iata_code=_departure) &
+                            Q(departure_date=_departure_date) &
+                            Q(aircraft__in=aircrafts)
                         )
 
+                        # available_flights = available_flights.filter(
+                            # Q(arrival_date = _arrival_date)
+                        # )
 
-                return self.render_to_response(self.get_context_data(form=form, available_flights=available_flights))
+
+                return self.render_to_response(self.get_context_data(form=form, available_flights=available_flights,
+                                                                     return_flights=return_flights))
 
             else: # form is invalid
                 return self.render_to_response(self.get_context_data(form=form))
@@ -92,7 +102,6 @@ def register_user(request):
                           {'registration_form': registration_form,
                            'registered': registered})
         else:
-            print registration_form.errors
             return render(request,
                           'login.html',
                           {'registration_form': registration_form,
