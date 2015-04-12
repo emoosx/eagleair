@@ -1,10 +1,12 @@
 from django.core.urlresolvers import reverse_lazy
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
-from django.db.models import Q
+from django.db.models import Q, F
 from django.views.generic.edit import FormView
 from django.contrib.auth.models import User
-from flight.models import Flight
+from django.contrib.auth import logout, login, authenticate
+from flight.models import Flight, Aircraft
+from django.shortcuts import redirect, render_to_response, render
 from website.forms import FrontPageSearchForm, RegistrationForm
 from pprint import pprint
 from datetime import datetime
@@ -27,10 +29,16 @@ class IndexView(FormView):
                 _departure_date = datetime.strptime(_departure_date, DATE_FORMAT).date()
                 _arrival = self.request.GET.get('arrival')
                 _arrival_date = self.request.GET.get('arrival_date', None)
+
+                aircrafts = Aircraft.objects.filter(
+                    seat_count_F__gte=_no_of_guests-F('seat_count_B')-F('seat_count_E')
+                )
                 available_flights = Flight.objects.filter(
                     Q(from_airport__iata_code=_departure) &
                     Q(to_airport__iata_code=_arrival) &
-                    Q(departure_date=_departure_date)
+                    Q(departure_date=_departure_date) &
+                    Q(aircraft__in=aircrafts)
+                    # Q(aircraft__seats__gte=_no_of_guests)
                 )
                 if _trip_type != "one":
                     if _arrival_date:
@@ -40,7 +48,6 @@ class IndexView(FormView):
                         )
 
 
-                pprint(available_flights)
                 return self.render_to_response(self.get_context_data(form=form, available_flights=available_flights))
 
             else: # form is invalid

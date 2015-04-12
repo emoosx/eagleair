@@ -121,22 +121,41 @@
               <section class="flight-list col s12 center">
                 <ul class="collection">
                   {% for flight in available_flights %}
+                  <a href="#">
                   <li class="flight-details collection-item">
                     <div class="flight-info">
-                      <a href="#" class="flight-code">{{flight.code}}</a>
+                      <span class="flight-code">{{flight.code}}</span>
 
                       <div class="flight-departure">
+                        <span class="date">{{flight.departure_date}}</span>
                         <span class="time">{{flight.departure_time}}</span>
                         <span class="airport">{{flight.from_airport}}</span>
                       </div>
 
                       <div class="flight-arrival">
+                        <span class="date">{{flight.arrival_date}}</span>
                         <span class="time">{{flight.arrival_time}}</span>
                         <span class="airport">{{flight.to_airport}}</span>
                       </div>
 
+                      <div class="first-class">
+                        <span class="seats">{{flight.aircraft.seat_count_F}}</span>
+                        <span class="prices">{{flight.price_F}}</span>
+                      </div>
+
+                      <div class="business-class">
+                        <span class="seats">{{flight.aircraft.seat_count_B}}</span>
+                        <span class="prices">{{flight.price_B}}</span>
+                      </div>
+
+                      <div class="economy-class">
+                        <span class="seats">{{flight.aircraft.seat_count_E}}</span>
+                        <span class="prices">{{flight.price_E}}</span>
+                      </div>
+
                     </div>
                   </li>
+                </a>
                   {% endfor %}
                 </ul>
               </section>

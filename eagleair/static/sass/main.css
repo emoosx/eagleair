@@ -31,46 +31,74 @@ body, h1 {
   list-style-type: disc;
   margin-left: 1em; }
 
-/* line 52, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
-.flight-list li {
-  float: left; }
-  /* line 55, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
-  .flight-list li .flight-code {
-    display: block;
-    line-height: 1.5em;
-    margin-bottom: 1em; }
-  /* line 61, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
-  .flight-list li .flight-departure {
-    float: left;
-    width: 150px;
-    height: 100px; }
-  /* line 67, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
-  .flight-list li .flight-arrival {
-    margin-left: 150px;
-    height: 100px; }
-/* line 74, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
-.flight-list .time {
-  display: block;
-  font-size: 1.9rem;
-  line-height: 28px; }
-/* line 79, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
-.flight-list .airport {
-  display: inline; }
+/* line 51, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+.flight-list {
+  display: table; }
+  /* line 53, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+  .flight-list .flight-info {
+    display: table-row;
+    height: 100%;
+    text-decoration: none;
+    font-style: none;
+    color: none; }
+    /* line 60, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+    .flight-list .flight-info .flight-code {
+      display: block;
+      line-height: 1.5em;
+      margin-bottom: 1em; }
+    /* line 66, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+    .flight-list .flight-info .flight-departure, .flight-list .flight-info .flight-arrival {
+      display: table-cell;
+      padding: 2em 2.5em;
+      position: relative; }
+      /* line 70, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+      .flight-list .flight-info .flight-departure .date, .flight-list .flight-info .flight-arrival .date {
+        position: absolute;
+        top: 0; }
+      /* line 74, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+      .flight-list .flight-info .flight-departure .time, .flight-list .flight-info .flight-arrival .time {
+        position: absolute;
+        bottom: 0; }
+      /* line 78, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+      .flight-list .flight-info .flight-departure .airport, .flight-list .flight-info .flight-arrival .airport {
+        font-weight: bold; }
+    /* line 83, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+    .flight-list .flight-info .first-class, .flight-list .flight-info .business-class, .flight-list .flight-info .economy-class {
+      display: table-cell;
+      padding: 2em 2.5em;
+      height: 100%; }
+      /* line 88, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+      .flight-list .flight-info .first-class .seats, .flight-list .flight-info .business-class .seats, .flight-list .flight-info .economy-class .seats {
+        border: 1px solid #333;
+        padding: 1em; }
+      /* line 92, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+      .flight-list .flight-info .first-class .prices, .flight-list .flight-info .business-class .prices, .flight-list .flight-info .economy-class .prices {
+        text-align: center;
+        float: left; }
 
-/* line 86, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+/* .time { */
+/* display: block; */
+/* font-size: 1.9rem; */
+/* line-height: 28px; */
+/* } */
+/* .airport { */
+/* display: inline; */
+/* } */
+/* } */
+/* line 115, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
 .testimonials i {
   text-align: center;
   padding-left: 50%;
   margin-left: -12.5%; }
-/* line 91, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+/* line 120, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
 .testimonials h4 {
   text-align: center; }
 
-/* line 97, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+/* line 126, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
 .clear {
   clear: both; }
 
-/* line 101, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
+/* line 130, /Users/khzaw/Code/school/eagleair/eagleair/static/sass/main.scss */
 body {
   background-color: #FCFCFC; }
 

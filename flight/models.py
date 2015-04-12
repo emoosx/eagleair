@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Q
 from international.models import countries
 
 
@@ -58,9 +59,12 @@ class Aircraft(models.Model):
         else:
             return self.seat_count_E
 
+
     def __unicode__(self):
         return '{} (F: {}, B: {}, E: {})'.format(self.model, self.seat_count_F,
                               self.seat_count_B, self.seat_count_E)
+
+
 
 
 class Flight(models.Model):
