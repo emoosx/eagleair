@@ -28,7 +28,7 @@
           </ul>
           <ul class="right">
             {% if user.is_authenticated %}
-            <li><a href="#">Hello, {{user}}</a></li>
+            <li><a href="/user_details/{{user.id}}">Hello, {{user}}</a></li>
             <li><a href="/logout/">Logout</a></li>
             {% else %}
             <li><a href="/register/">Register/Sign In</a></li>

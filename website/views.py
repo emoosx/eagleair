@@ -7,7 +7,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth import logout, login, authenticate
 from flight.models import Flight, Aircraft
 from django.shortcuts import redirect, render_to_response, render
-from website.forms import FrontPageSearchForm, RegistrationForm
+from django.contrib.auth.models import User
+from website.forms import FrontPageSearchForm, RegistrationForm, ParticularsForm
+from django.contrib.auth.decorators import login_required
 from pprint import pprint
 from datetime import datetime
 
@@ -114,3 +116,26 @@ def register_user(request):
                   'login.html',
                   {'registration_form': registration_form,
                    'registered': registered})
+
+
+@login_required
+def user_details(request, userid):
+    success = False
+    user = User.objects.get(pk=userid)
+
+    if request.POST:
+        form = ParticularsForm(data=request.POST, instance=user)
+        if form.is_valid():
+            f = form.save(commit=False)
+            f.user = request.user
+            f.save()
+            success = True
+            return redirect('website:register')
+
+
+    else:
+        form = ParticularsForm(instance=user)
+
+    return render(request,
+                  'user_details.html',
+                  {'form': form, 'userid': userid, 'success': success })

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <h2>Edit Particulars</h2>
+    <form action="/user_details/{{userid}}/" method="post">
+      {% csrf_token %}
+      {{form}}
+          <div class="col s12">
+<button class="btn waves-effect weaves-light right" type="submit" name="action">Update
+            <i class="mdi-content-send right"></i></button>
+        </div>
+    </form>
+  </div>
+</div>
+{% endblock content %}

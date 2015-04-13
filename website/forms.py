@@ -96,3 +96,35 @@ class RegistrationForm(forms.ModelForm):
         self.fields['email'].widget.attrs['placeholder'] = "Email"
         self.fields['password'].widget.attrs['placeholder'] = "Password"
         self.fields['confirm_password'].widget.attrs['placeholder'] = "Confirm Password"
+
+    def clean(self):
+        cleaned_data = super(RegistrationForm, self).clean()
+        password = cleaned_data.get('password', None)
+        confirm_password = cleaned_data.get('confirm_password', None)
+        if password != confirm_password:
+            raise ValidationError(('Passwords are not the same'), code='invalid')
+
+
+class ParticularsForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput())
+    confirm_password = forms.CharField(widget=forms.PasswordInput())
+
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'username', 'email', 'password')
+
+    def __init__(self, *args, **kwargs):
+        super(ParticularsForm, self).__init__(*args, **kwargs)
+        self.fields['first_name'].widget.attrs['placeholder'] = "First Name"
+        self.fields['last_name'].widget.attrs['placeholder'] = "Last Name"
+        self.fields['username'].widget.attrs['placeholder'] = "Username"
+        self.fields['email'].widget.attrs['placeholder'] = "Email"
+        self.fields['password'].widget.attrs['placeholder'] = "Password"
+        self.fields['confirm_password'].widget.attrs['placeholder'] = "Confirm Password"
+
+    def clean(self):
+        cleaned_data = super(ParticularsForm, self).clean()
+        password = cleaned_data.get('password', None)
+        confirm_password = cleaned_data.get('confirm_password', None)
+        if password != confirm_password:
+            raise ValidationError(('Passwords are not the same'), code='invalid')
