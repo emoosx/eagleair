@@ -7,6 +7,7 @@ from django import forms
 
 ERROR_MESSAGE = "Error logging in!"
 
+
 class UserAdminAuthenticationForm(AuthenticationForm):
     login_form = forms.BooleanField(widget=forms.HiddenInput,
                                     initial=1,
@@ -46,4 +47,9 @@ class UserAdmin(AdminSite):
         return request.user.is_active
 
 
-user_admin_site = UserAdmin(name='useradmin')
+class EagleAirAdmin(AdminSite):
+    site_title = ugettext_lazy("EagleAir")
+    site_header = ugettext_lazy("EagleAir")
+
+
+user_admin_site = EagleAirAdmin(name='admin')
