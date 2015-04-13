@@ -54,12 +54,32 @@ class FlightDetailView(FormMixin, DetailView):
         form = self.get_form(form_class)
 
         if form.is_valid():
-            total_seats = form.cleaned_data.get('first_class', 0) + \
-                form.cleaned_data.get('business_class', 0) + \
-                form.cleaned_data.get('economy_class', 0)
+            first_class = form.cleaned_data.get('first_class', 0)
+            business_class = form.cleaned_data.get('business_class', 0)
+            economy_class = form.cleaned_data.get('economy_class', 0)
+            total_seats = 0
+
+            flight = Flight.objects.get(pk=kwargs.get('pk'))
+            aircraft = flight.aircraft
+
+            if first_class > 0:
+                total_seats += int(first_class)
+                aircraft.seat_count_F = aircraft.seat_count_F - 1;
+                aircraft.save()
+
+            if business_class > 0:
+                total_seats += int(business_class)
+                aircraft.seat_count_B = aircraft.seat_count_B - 1;
+                aircraft.save()
+
+            if economy_class > 0:
+                total_seats += int(economy_class)
+                aircraft.seat_count_E = aircraft.seat_count_E - 1;
+                aircraft.save()
+
             new_booking = Booking.objects.create(
                 user = request.user,
-                flight_id = Flight.objects.get(pk=kwargs.get('pk')),
+                flight_id = flight,
                 street1 = form.cleaned_data.get('street1'),
                 street2 = form.cleaned_data.get('street2'),
                 city = form.cleaned_data.get('city'),
